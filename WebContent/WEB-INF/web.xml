@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Project3</display-name>
+  
+	
+	<!-- 메인화면 매핑 -->
+	<servlet>
+		<servlet-name>MainController</servlet-name>
+		<servlet-class>controller.MainCtrl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MainController</servlet-name>
+		<url-pattern>/main/main.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- DB연결 -->
+	<context-param>
+		<param-name>MariaJDBCDriver</param-name>
+		<param-value>org.mariadb.jdbc.Driver</param-value>
+	</context-param>
+	<context-param>
+		<param-name>MaiaConnectURL</param-name>
+		<param-value>jdbc:mariadb://localhost:3306/wjvnsej</param-value>
+	</context-param>
+	
+	<!-- 
+	게시판 페이지처리(Paging) 관련 파라미터
+	PAGE_SIZE : 한 페이지에 출력 할 게시물의 갯수. 보통 10 ~ 30정도로 설정한다.
+	BLOCK_PAGE : 한 블록당 출력할 페이지 번호의 갯수. 보통 5 ~ 10정도로 설정한다.
+	 -->
+	<context-param>
+	 	<param-name>PAGE_SIZE</param-name>
+	 	<param-value>6</param-value>
+  	</context-param>
+  	<context-param>
+	 	<param-name>BLOCK_PAGE</param-name>
+	 	<param-value>5</param-value>
+  	</context-param>
+   
+  
+	<!-- 
+		세션유지시간설정 : 여기서 설정한 시간은 '분' 단위
+	-->
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+	
+	
+	
+	<!-- 커뮤니티 리스트 -->
+	<servlet>
+		<servlet-name>CommunityBoardList</servlet-name>
+		<servlet-class>controller.ListCtrl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CommunityBoardList</servlet-name>
+		<url-pattern>/community/commu_board_list</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 커뮤니티 글쓰기 -->
+	<servlet>
+		<servlet-name>CommunityBoardWrite</servlet-name>
+		<servlet-class>controller.WriteCtrl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CommunityBoardWrite</servlet-name>
+		<url-pattern>/community/commu_board_write</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 커뮤니티 상세보기 -->
+	<servlet>
+		<servlet-name>CommunityBoardView</servlet-name>
+		<servlet-class>controller.ViewCtrl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CommunityBoardView</servlet-name>
+		<url-pattern>/community/commu_board_view</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 커뮤니티 수정하기 -->
+	<servlet>
+		<servlet-name>CommunityBoardEdit</servlet-name>
+		<servlet-class>controller.EditCtrl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CommunityBoardEdit</servlet-name>
+		<url-pattern>/community/commu_board_edit</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 커뮤니티 삭제하기 -->
+	<servlet>
+		<servlet-name>CommunityBoardDelete</servlet-name>
+		<servlet-class>controller.DeleteCtrl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CommunityBoardDelete</servlet-name>
+		<url-pattern>/community/commu_board_delete</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 커뮤니티 파일 다운로드 -->
+	<servlet>
+		<servlet-name>CommunityBoardDownload</servlet-name>
+		<servlet-class>controller.DownloadCtrl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CommunityBoardDownload</servlet-name>
+		<url-pattern>/community/commu_board_download</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
+	
+	
+	
+	
+
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

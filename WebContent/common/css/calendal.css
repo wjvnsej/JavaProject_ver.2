@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+a:link { font-family: "";font-size:9pt; text-decoration:none; color:darkblue}
+a:visited { font-family: "";font-size:9pt;text-decoration:none; color:darkblue}
+a:hover {font-family: "";font-size:9pt;text-decoration::none; color:red}
+font {  font-family: ""; font-size:14pt; text-decoration: none}
+.inputline {  border:1 solid; color: #002669}
+.input {  border:1 solid}
+.head {  font-family: "arial"; font-size: 10pt; font-weight: bold; color: #000000}
+.text_jp {  font-family: ""; font-size:9pt; line-height: 12pt}
+.text_sjp {  font-family: ""; font-size:8pt; line-height: 12pt}
+.text_mjp {  font-family: ""; font-size:11pt; line-height: 12pt}
+.text_bjp {  font-family: ""; font-size:12pt; line-height: 12pt}
+.body1{ font-size:38px;}
+.body2{ font-size:26px;}
+.body3{ font-size:14px;}
+.body4{ font-size:8px;}
+.body5{ font-size:10px;}
+.body6{ font-size:9px;}
+.lt { font-size:12pt; text-decoration: line-through }
+td{ border: 1px solid black;}
+
+input.locked {  background-color:#DDDDDD;  }

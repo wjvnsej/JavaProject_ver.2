@@ -1,0 +1,239 @@
+-- --------------------------------------------------------
+-- 호스트:                          127.0.0.1
+-- 서버 버전:                        10.5.3-MariaDB - mariadb.org binary distribution
+-- 서버 OS:                        Win64
+-- HeidiSQL 버전:                  11.0.0.5919
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+-- suamil_db 데이터베이스 구조 내보내기
+DROP DATABASE IF EXISTS `suamil_db`;
+CREATE DATABASE IF NOT EXISTS `suamil_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `suamil_db`;
+
+-- 테이블 suamil_db.membership 구조 내보내기
+DROP TABLE IF EXISTS `membership`;
+CREATE TABLE IF NOT EXISTS `membership` (
+  `num` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(100) NOT NULL,
+  `pass` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `phone` varchar(30) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `email_send_ok` varchar(5) CHARACTER SET ucs2 NOT NULL,
+  `zip` varchar(10) NOT NULL,
+  `addr` varchar(500) NOT NULL,
+  `grade` varchar(30) NOT NULL DEFAULT 'user',
+  `join_date` date NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`num`) USING BTREE,
+  UNIQUE KEY `UNIQUE KEY` (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+-- 테이블 데이터 suamil_db.membership:~13 rows (대략적) 내보내기
+DELETE FROM `membership`;
+/*!40000 ALTER TABLE `membership` DISABLE KEYS */;
+INSERT INTO `membership` (`num`, `id`, `pass`, `name`, `phone`, `email`, `email_send_ok`, `zip`, `addr`, `grade`, `join_date`) VALUES
+	(1, 'aflj1287', 'ty7520rx', '김서영', '010-5597-1287', 'aflj1287@naver.com', 'no', '31098', '충남 천안시 서북구 한들3로 36-17천안백석3차 IPARK 504호', 'admin', '2020-05-29'),
+	(2, 'lsh4893', '123a', '이수호', '010-7777-3333', 'wjvnsej@gmail.com', 'yes', '08529', '서울 금천구 가산동 147-31 리츠 701호', 'user', '2020-05-29'),
+	(3, 'wjvnsej', 'ehdrjs13', '이동건', '010-4893-9337', 'wjvnsej@hanmail.net', 'yes', '27931', '충청북도 증평군 증평읍 교동리 102-2', 'admin', '2018-08-11'),
+	(4, 'kosmo61', '1234', '코스모61', '010-1111-3333', 'nakjasabal@naver.com', 'no', '05301', '서울 강동구 양재대로128길 52', 'admin', '2020-06-07'),
+	(7, 'kosmo1', '1234', '낙자사발1', '010-1111-3333', 'nakjasabal@naver.com', 'no', '05301', '서울 강동구 양재대로128길 52', 'user', '2020-06-07'),
+	(10, 'kosmo2', '1234', '낙자사발2', '010-1111-3333', 'nakjasabal@naver.com', 'no', '05301', '서울 강동구 양재대로128길 52', 'user', '2020-06-07'),
+	(11, 'kosmo3', '1234', '낙자사발3', '010-1111-3333', 'nakjasabal@naver.com', 'no', '05301', '서울 강동구 양재대로128길 52', 'admin', '2020-06-07'),
+	(12, 'kosmo4', '1234', '낙자사발4', '010-1111-3333', 'nakjasabal@naver.com', 'no', '05301', '서울 강동구 양재대로128길 52', 'user', '2020-06-07'),
+	(13, 'kosmo5', '1234', '낙자사발5', '010-1111-3333', 'nakjasabal@naver.com', 'no', '05301', '서울 강동구 양재대로128길 52', 'user', '2020-06-07'),
+	(16, 'kosmo7', '1234', '낙자사발7', '010-1111-3333', 'nakjasabal@naver.com', 'no', '05301', '서울 강동구 양재대로128길 52', 'user', '2020-06-07'),
+	(17, 'kosmo8', '1234', '낙자사발8', '010-1111-3333', 'nakjasabal@naver.com', 'no', '05301', '서울 강동구 양재대로128길 52', 'admin', '2020-06-07'),
+	(18, 'kosmo9', '1234', '낙자사발9', '010-1111-3333', 'nakjasabal@naver.com', 'no', '05301', '서울 강동구 양재대로128길 52', 'user', '2020-06-07'),
+	(19, 'kosmo10', '1234', '낙자사발10', '010-1111-3333', 'nakjasabal@naver.com', 'no', '05301', '서울 강동구 양재대로128길 52', 'admin', '2020-06-07');
+/*!40000 ALTER TABLE `membership` ENABLE KEYS */;
+
+-- 테이블 suamil_db.multi_board 구조 내보내기
+DROP TABLE IF EXISTS `multi_board`;
+CREATE TABLE IF NOT EXISTS `multi_board` (
+  `num` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `content` text NOT NULL,
+  `ofile` varchar(100) DEFAULT NULL,
+  `sfile` varchar(100) DEFAULT NULL,
+  `postdate` datetime NOT NULL DEFAULT current_timestamp(),
+  `visitcount` mediumint(10) DEFAULT 0,
+  `downcount` mediumint(10) DEFAULT 0,
+  `bname` varchar(30) NOT NULL,
+  PRIMARY KEY (`num`)
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8;
+
+-- 테이블 데이터 suamil_db.multi_board:~49 rows (대략적) 내보내기
+DELETE FROM `multi_board`;
+/*!40000 ALTER TABLE `multi_board` DISABLE KEYS */;
+INSERT INTO `multi_board` (`num`, `id`, `name`, `title`, `content`, `ofile`, `sfile`, `postdate`, `visitcount`, `downcount`, `bname`) VALUES
+	(2, 'wjvnsej', '이동건', '제목입니다1', '내용입니다1', NULL, '0', '2020-05-31 23:04:32', 4, 0, 'freeboard'),
+	(3, 'wjvnsej', '이동건', '제목입니다2', '내용입니다2', NULL, '0', '2020-05-31 23:05:19', 1, 0, 'freeboard'),
+	(4, 'wjvnsej', '이동건', '제목입니다3', '내용입니다3', NULL, '0', '2020-05-31 23:05:21', 1, 0, 'freeboard'),
+	(5, 'wjvnsej', '이동건', '제목입니다4', '내용입니다4', NULL, '0', '2020-05-31 23:05:22', 1, 0, 'freeboard'),
+	(6, 'wjvnsej', '이동건', '제목입니다5', '내용입니다5', NULL, '0', '2020-05-31 23:05:24', 1, 0, 'freeboard'),
+	(7, 'wjvnsej', '이동건', '제목입니다6', '내용입니다6', NULL, '0', '2020-05-31 23:05:25', 1, 0, 'freeboard'),
+	(8, 'wjvnsej', '이동건', '제목입니다7', '내용입니다7', NULL, '0', '2020-05-31 23:05:27', 7, 0, 'freeboard'),
+	(10, 'wjvnsej', '이동건', '333333333333333333333333333333333333333333333333333333333333', '333333333333333333333333333333333333333333333333333333333333\r\n333333333333333333333333333333333333333333333333333333333333\r\n333333333333333333333333333333333333333333333333333333333333\r\n333333333333333333333333333333333333333333333333333333333333', NULL, NULL, '2020-06-01 14:34:38', 2, 0, 'freeboard'),
+	(11, 'wjvnsej', '이동건', '333333333333333333333333333333333333333333333333333333333333', '333333333333333333333333333333333333333333333333333333333333\r\n333333333333333333333333333333333333333333333333333333333333\r\n333333333333333333333333333333333333333333333333333333333333\r\n333333333333333333333333333333333333333333333333333333333333', NULL, NULL, '2020-06-01 14:35:42', 16, 0, 'freeboard'),
+	(12, 'wjvnsej', '이동건', '333333333333333333333333333333333333333333333333333333333333', '333333333333333333333333333333333333333333333333333333333333\r\n\r\n333333333333333333333333333333333333333333333333333333333333\r\n333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333\r\n\r\n333333333333333333333333333333333333333333333333333333333333\r\n333333333333333333333333333333333333333333333333333333333333\r\n333333333333333333333333333333333333333333333333333333333333', NULL, NULL, '2020-06-01 14:35:56', 10, 0, 'freeboard'),
+	(13, 'wjvnsej', '이동건', '333 수정', '333\r\n333\r\n333\r\n수정', NULL, NULL, '2020-06-01 15:14:39', 8, 0, 'freeboard'),
+	(18, 'wjvnsej', '이동건', '캘린더제목입니다1', '캘린더내용입니다1', NULL, NULL, '2020-05-03 11:53:40', 2, 0, 'calenboard'),
+	(19, 'wjvnsej', '이동건', '캘린더제목입니다2', '캘린더내용입니다2', NULL, NULL, '2020-05-08 12:53:42', 85, 0, 'calenboard'),
+	(20, 'wjvnsej', '이동건', '캘린더제목입니다333333333333333333333333333333333333', '캘린더내용입니다3', NULL, NULL, '2020-05-13 12:53:43', 67, 0, 'calenboard'),
+	(21, 'wjvnsej', '이동건', '캘린더제목입니다4', '캘린더내용입니다4', NULL, NULL, '2020-05-19 12:53:45', 0, 0, 'calenboard'),
+	(22, 'wjvnsej', '이동건', '캘린더제목입니다5', '캘린더내용입니다5', NULL, NULL, '2020-05-21 12:53:46', 5, 0, 'calenboard'),
+	(23, 'wjvnsej', '이동건', '캘린더제목입니다6', '캘린더내용입니다6', NULL, NULL, '2020-05-27 12:53:48', 0, 0, 'calenboard'),
+	(26, 'wjvnsej', '이동건', '1111', '1111', NULL, NULL, '2020-06-02 18:01:09', 3, 0, 'freeboard'),
+	(32, 'wjvnsej', '이동건', '33333333333333333', '33333333333333', '치명적.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '2020-06-02 21:46:38', 23, 0, 'infoboard'),
+	(34, 'wjvnsej', '이동건', '안녕하         세요 저는   이동건입니다 충북증평군증평읍교동리102-2번지중앙약국서울특별시금천구가산동147-31리츠701호', '테스트', NULL, NULL, '2020-06-03 12:28:42', 9, 0, 'freeboard'),
+	(36, 'wjvnsej', '이동건', '사진게시판 제목입니다2', '사진게시판 내용입니다2', 'a13.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '2020-06-03 16:10:28', 0, 0, 'photoboard'),
+	(37, 'wjvnsej', '이동건', '사진게시판 제목입니다 3333333333333333333333333', '사진게시판 내용입니다3', 'a14.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '2020-06-03 16:18:10', 0, 0, 'photoboard'),
+	(38, 'wjvnsej', '이동건', '사진게시판 제목입니다4', '사진게시판 내용입니다4', 'a15.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '2020-06-03 16:18:10', 0, 0, 'photoboard'),
+	(39, 'wjvnsej', '이동건', '사진게시판 제목입니다5', '사진게시판 내용입니다5', 'a16.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '2020-06-03 16:18:10', 0, 0, 'photoboard'),
+	(40, 'wjvnsej', '이동건', '사진게시판 제목입니다6', '사진게시판 내용입니다6', 'a17.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '2020-06-03 16:18:10', 7, 0, 'photoboard'),
+	(41, 'wjvnsej', '이동건', '사진게시판 제목입니다7', '사진게시판 내용입니다7', 'a18.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '2020-06-03 16:18:10', 4, 0, 'photoboard'),
+	(42, 'wjvnsej', '이동건', '사진게시판 제목입니다8', '사진게시판 내용입니다8', 'a19.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '2020-06-03 16:18:10', 2, 0, 'photoboard'),
+	(43, 'wjvnsej', '이동건', '33333333333333333', '33333333333333', '치명적.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '2020-06-03 18:44:59', 20, 0, 'infoboard'),
+	(44, 'wjvnsej', '이동건', '123214', '21312412', '치명적.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '2020-06-03 19:01:41', 8, 0, 'infoboard'),
+	(45, 'wjvnsej', '이동건', '수정하기1', '수정하기1', '3.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '2020-06-03 21:01:50', 5, 0, 'infoboard'),
+	(46, 'wjvnsej', '이동건', '공지사항제목입니다1', '공지사항내용입니다1', NULL, NULL, '2020-06-03 21:03:53', 12, 0, 'notice'),
+	(49, 'wjvnsej', '이동건', '보호자게시판 제목입니다1', '보호자게시판 내용입니다1', 'a.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 79, 0, 'bohojaboard'),
+	(50, 'wjvnsej', '이동건', '직원자료실 제목입니다1', '직원자료실 내용입니다1', 'a21.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 79, 0, 'staffboard'),
+	(59, 'wjvnsej', '이동건', '보호자게시판 제목입니다2', '보호자게시판 내용입니다2', 'a1.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 79, 0, 'bohojaboard'),
+	(60, 'wjvnsej', '이동건', '보호자게시판 제목입니다3333333333333333333333333333333333333333333333333333333333333333', '보호자게시판 내용입니다3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333', 'a2.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 79, 0, 'bohojaboard'),
+	(61, 'wjvnsej', '이동건', '보호자게시판 제목입니다4', '보호자게시판 내용입니다4', 'a3.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 79, 0, 'bohojaboard'),
+	(62, 'wjvnsej', '이동건', '보호자게시판 제목입니다5', '보호자게시판 내용입니다5', 'a4.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 79, 0, 'bohojaboard'),
+	(63, 'wjvnsej', '이동건', '보호자게시판 제목입니다6', '보호자게시판 내용입니다6', 'a5.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 79, 0, 'bohojaboard'),
+	(64, 'wjvnsej', '이동건', '보호자게시판 제목입니다7', '보호자게시판 내용입니다7', 'a6.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 79, 0, 'bohojaboard'),
+	(65, 'wjvnsej', '이동건', '보호자게시판 제목입니다8', '보호자게시판 내용입니다8', 'a7.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 79, 2, 'bohojaboard'),
+	(68, 'wjvnsej', '이동건', '직원자료실 제목입니다2', '직원자료실 내용입니다2', 'a22.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 79, 0, 'staffboard'),
+	(69, 'wjvnsej', '이동건', '직원자료실 제목입니다333333333333333333333333333', '직원자료실 내용입니다3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333', 'a23.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 85, 0, 'staffboard'),
+	(70, 'wjvnsej', '이동건', '직원자료실 제목입니다4', '직원자료실 내용입니다4', 'a24.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 79, 0, 'staffboard'),
+	(71, 'wjvnsej', '이동건', '직원자료실 제목입니다5', '직원자료실 내용입니다5', 'a25.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 80, 0, 'staffboard'),
+	(72, 'wjvnsej', '이동건', '직원자료실 제목입니다6', '직원자료실 내용입니다6', 'a26.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 79, 0, 'staffboard'),
+	(73, 'wjvnsej', '이동건', '직원자료실 제목입니다7', '직원자료실 내용입니다7', 'a27.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 79, 0, 'staffboard'),
+	(74, 'wjvnsej', '이동건', '직원자료실 제목입니다8', '직원자료실 내용입니다8', 'a28.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-03 16:18:10', 80, 1, 'staffboard'),
+	(81, 'wjvnsej', '이동건', '보호자게시판 첫 글쓰기 제목', '보호자게시판 첫 글쓰기 내용', 'a8.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload', '2020-06-04 23:58:02', 4, 0, 'bohojaboard'),
+	(82, 'wjvnsej', '이동건', 'xptmxm', 'sadasf', 'a20.png', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '2020-06-05 17:41:17', 28, 0, 'photoboard'),
+	(83, 'wjvnsej', '이동건', '관리자모드 프로그램일정 글쓰기 제목', '관리자모드 프로그램일정 글쓰기 내용', NULL, 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '2020-06-08 04:36:51', 1, 0, 'calenboard'),
+	(84, 'wjvnsej', '이동건', '공지사항 관리자모드 글쓰기 제목', '공지사항 관리자모드 글쓰기 내용', 'KakaoTalk_20190408_004642715.jpg', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '2020-06-08 04:37:24', 1, 0, 'notice');
+/*!40000 ALTER TABLE `multi_board` ENABLE KEYS */;
+
+-- 테이블 suamil_db.request_form 구조 내보내기
+DROP TABLE IF EXISTS `request_form`;
+CREATE TABLE IF NOT EXISTS `request_form` (
+  `num` mediumint(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `disabled` varchar(50) DEFAULT NULL,
+  `equip` varchar(50) DEFAULT NULL,
+  `cake` varchar(10) DEFAULT NULL,
+  `cookie` varchar(10) DEFAULT NULL,
+  `bread` varchar(10) DEFAULT NULL,
+  `phone1` varchar(50) NOT NULL,
+  `phone2` varchar(50) DEFAULT NULL,
+  `email` varchar(50) NOT NULL,
+  `zip` varchar(50) DEFAULT NULL,
+  `addr` varchar(100) DEFAULT NULL,
+  `cleankind` varchar(20) DEFAULT NULL,
+  `area` varchar(50) DEFAULT NULL,
+  `applydate` date NOT NULL,
+  `recep_type` varchar(20) DEFAULT NULL,
+  `etc` text DEFAULT '특이사항없음',
+  `bname` varchar(20) NOT NULL,
+  PRIMARY KEY (`num`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+-- 테이블 데이터 suamil_db.request_form:~6 rows (대략적) 내보내기
+DELETE FROM `request_form`;
+/*!40000 ALTER TABLE `request_form` DISABLE KEYS */;
+INSERT INTO `request_form` (`num`, `name`, `disabled`, `equip`, `cake`, `cookie`, `bread`, `phone1`, `phone2`, `email`, `zip`, `addr`, `cleankind`, `area`, `applydate`, `recep_type`, `etc`, `bname`) VALUES
+	(4, '이동건', '', '', '', '', '', '010-4893-9337', '010-5597-1287', 'wjvnsej@gmail.com', '08529', '서울 금천구 가산동 147-31 리츠 701호', '홈클리닝', '201.654제곱미터(m2) / 61평', '2020-06-13', '예약신청', 'ㅎㅋㅎㅋㅎㅋㅎㅋ', 'request'),
+	(5, '김서영', '', '', '', '', '', '010-5597-1287', '010-4893-9337', 'aflj1287@naver.com', '31098', '충남 천안시 서북구 백석동 1200 천안백석3차 IPARK 304동 504호', '홈클리닝', '3.306제곱미터(m2) / 1평', '2020-06-18', '예약신청', '니네집 1평ㅋ', 'request'),
+	(6, '이동건', '', '', '', '', '', '010-4893-9337', '010-5597-1287', 'wjvnsej@hanmail.net', '27931', '충북 증평군 증평읍 광장로 107-2 중앙약국', '홈클리닝', '330.580제곱미터(m2) / 100평', '2020-06-19', '예약신청', '없음', 'request'),
+	(7, '김서영', '', '', '', '', '', '010-5597-1287', '010-4893-9337', 'aflj1287@naver.com', '31098', '충남 천안시 서북구 백석동 1200 천안백석3차 IPARK', '홈클리닝', '3.306제곱미터(m2) / 1평', '2020-06-11', '예약신청', '없음', 'request'),
+	(11, '김서영', '유 / 성질드러움', '무 / ', '케익체험 / 3명', '쿠키체험 / 0명', '빵체험 / 0명', '010-4893-9337', NULL, 'aflj1287@naver.com', NULL, NULL, NULL, NULL, '2020-06-18', NULL, '없음', 'apply');
+/*!40000 ALTER TABLE `request_form` ENABLE KEYS */;
+
+-- 테이블 suamil_db.shop_basket 구조 내보내기
+DROP TABLE IF EXISTS `shop_basket`;
+CREATE TABLE IF NOT EXISTS `shop_basket` (
+  `idx` mediumint(10) NOT NULL AUTO_INCREMENT,
+  `p_num` mediumint(10) NOT NULL,
+  `u_id` varchar(50) NOT NULL,
+  `p_cnt` mediumint(10) NOT NULL,
+  `p_total_price` mediumint(30) NOT NULL,
+  PRIMARY KEY (`idx`),
+  KEY `FK_shop_basket_shop_products` (`p_num`),
+  CONSTRAINT `FK_shop_basket_shop_products` FOREIGN KEY (`p_num`) REFERENCES `shop_products` (`num`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+
+-- 테이블 데이터 suamil_db.shop_basket:~0 rows (대략적) 내보내기
+DELETE FROM `shop_basket`;
+/*!40000 ALTER TABLE `shop_basket` DISABLE KEYS */;
+INSERT INTO `shop_basket` (`idx`, `p_num`, `u_id`, `p_cnt`, `p_total_price`) VALUES
+	(36, 18, 'wjvnsej', 1, 80000);
+/*!40000 ALTER TABLE `shop_basket` ENABLE KEYS */;
+
+-- 테이블 suamil_db.shop_ordering 구조 내보내기
+DROP TABLE IF EXISTS `shop_ordering`;
+CREATE TABLE IF NOT EXISTS `shop_ordering` (
+  `idx` mediumint(10) NOT NULL AUTO_INCREMENT,
+  `order_record` text NOT NULL,
+  `name1` varchar(10) NOT NULL,
+  `addr1` text NOT NULL,
+  `phone1` varchar(30) NOT NULL,
+  `email1` varchar(50) NOT NULL,
+  `name2` varchar(10) NOT NULL,
+  `addr2` text NOT NULL,
+  `phone2` varchar(30) NOT NULL,
+  `email2` varchar(50) NOT NULL,
+  `msg` text DEFAULT '배송요청사항 없음',
+  `pay_kind` varchar(20) NOT NULL,
+  PRIMARY KEY (`idx`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+-- 테이블 데이터 suamil_db.shop_ordering:~0 rows (대략적) 내보내기
+DELETE FROM `shop_ordering`;
+/*!40000 ALTER TABLE `shop_ordering` DISABLE KEYS */;
+/*!40000 ALTER TABLE `shop_ordering` ENABLE KEYS */;
+
+-- 테이블 suamil_db.shop_products 구조 내보내기
+DROP TABLE IF EXISTS `shop_products`;
+CREATE TABLE IF NOT EXISTS `shop_products` (
+  `num` mediumint(10) NOT NULL AUTO_INCREMENT,
+  `p_name` varchar(50) NOT NULL,
+  `p_price` int(20) NOT NULL,
+  `p_acc` int(20) NOT NULL DEFAULT (`p_price` * 0.01),
+  `p_ofile` varchar(100) NOT NULL,
+  `p_sfile` varchar(100) NOT NULL,
+  `p_introduce` text NOT NULL,
+  `bname` varchar(50) NOT NULL,
+  PRIMARY KEY (`num`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+
+-- 테이블 데이터 suamil_db.shop_products:~8 rows (대략적) 내보내기
+DELETE FROM `shop_products`;
+/*!40000 ALTER TABLE `shop_products` DISABLE KEYS */;
+INSERT INTO `shop_products` (`num`, `p_name`, `p_price`, `p_acc`, `p_ofile`, `p_sfile`, `p_introduce`, `bname`) VALUES
+	(10, '단발병퇴치1', 10000, 100, '존잘러.jpg', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '단발병퇴지용 사진1', 'market_list'),
+	(11, '단발병퇴치2', 20000, 200, '존잘러.jpg', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '단발병퇴지용 사진2', 'market_list'),
+	(13, '단발병퇴치3', 30000, 300, '존잘러.jpg', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '단발병퇴지용 사진3', 'market_list'),
+	(14, '단발병퇴치4', 40000, 400, '존잘러.jpg', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '단발병퇴지용 사진4', 'market_list'),
+	(15, '단발병퇴치5', 50000, 500, '존잘러.jpg', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '단발병퇴지용 사진5', 'market_list'),
+	(16, '단발병퇴치6', 60000, 600, '존잘러.jpg', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '단발병퇴지용 사진6', 'market_list'),
+	(17, '단발병퇴치7', 70000, 700, '존잘러.jpg', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '단발병퇴지용 사진7', 'market_list'),
+	(18, '단발병퇴치8', 80000, 800, '존잘러.jpg', 'C:\\03Workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Project3\\Upload\\', '단발병퇴지용 사진8', 'market_list');
+/*!40000 ALTER TABLE `shop_products` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
